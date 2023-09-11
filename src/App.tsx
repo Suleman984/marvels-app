@@ -7,6 +7,8 @@ import Menubar from "./Components/organisms/Menubar";
 import Tagline from "./Components/atoms/Tagline";
 import DisplayCards from "./Components/molecules/DisplayCards";
 import { Slider1 } from "./Components/organisms/Slider1";
+import PosterBackground from './Components/atoms/PosterLogo';
+import { Poster } from './Components/molecules/Poster';
 
 
 const App: React.FC = () => {
@@ -40,6 +42,7 @@ const App: React.FC = () => {
       <Menubar/>
       {/* <Tagline/>
       <Slider1/> */}
+      <Poster/>
      
     </>
   );

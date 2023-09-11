@@ -64,14 +64,14 @@ const Menubar: React.FC = () => {
         </Container>
       </AppBar>
       {isDisplayCardsVisible ? (
-        <div>
+        <Box>
           <DisplayCards />
-        </div>
+        </Box>
       ) : (
-        <div>
+        <Box>
           <Tagline /> {/* Show Tagline when not hovering over DisplayCards */}
           <Slider1 /> {/* Show Slider1 when not hovering over DisplayCards */}
-        </div>
+        </Box>
       )}
     </Box>
   );
