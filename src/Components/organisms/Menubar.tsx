@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled";
-
+import DisplayCards from "../molecules/DisplayCards";
 const HoverElement = styled(Typography)`
   &:hover {
     cursor: pointer;

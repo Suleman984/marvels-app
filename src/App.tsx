@@ -13,6 +13,7 @@ const App: React.FC = () => {
   const [Characters, setCharacters] = useState<any[]>([]);
   const [Movies,setMovies]=useState<any[]>([]);
   const [Comics,setComics]=useState<any[]>([]);
+  const [isMenuHovered, setIsMenuHovered] = useState(false);
   useEffect(() => {
     const publicKey = 'fbae50a994a9c88e0db414c5488142de';
     const privateKey = 'bf8510677df0531b2544c2e3c1cf1396979ff23f';
