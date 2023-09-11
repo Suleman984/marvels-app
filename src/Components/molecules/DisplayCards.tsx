@@ -7,7 +7,7 @@ const tempHeadings=['Comic1','Comic11','Comic13',]
  const DisplayCards = () => {
   return (
     <>
-    <Box>
+    <Box width='100%'>
         <CardMenuBar headings={tempHeadings}></CardMenuBar>
         <CardHeadings headingText='Comics'/>
         <CardImages/>

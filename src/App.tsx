@@ -38,8 +38,8 @@ const App: React.FC = () => {
     <>
       <Header />
       <Menubar/>
-      <Tagline/>
-      <Slider1/>
+      {/* <Tagline/>
+      <Slider1/> */}
      
     </>
   );
