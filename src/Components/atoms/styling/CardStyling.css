@@ -1,0 +1,16 @@
+/* styles.css */
+.image-container {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Distribute items with space between them */
+    height: 300vh; /* Set the container height to 300vh */
+    width: 100%; /* Full width */
+    gap: 20px; /* Define the gap between items */
+    padding: 20px; /* Optional padding for the container */
+    box-sizing: border-box; /* Include padding in the width */
+  }
+  
+  /* Style for BasicCard (you can customize this further) */
+  .card {
+    /* Add any additional styling you want for your cards */
+  }
+  
