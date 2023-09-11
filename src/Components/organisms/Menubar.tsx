@@ -12,25 +12,13 @@ const HoverElement = styled(Typography)`
   }
 `;
 
-interface MenubarProps {
-  onShowDisplayCards: (show: boolean) => void;
-}
 
-const Menubar: React.FC<MenubarProps> = ({ onShowDisplayCards }) => {
-  const [isMenuHovered, setIsMenuHovered] = useState(false);
 
-  const handleMenuHover = () => {
-    setIsMenuHovered(true);
-    onShowDisplayCards(true);
-  };
-
-  const handleMenuLeave = () => {
-    setIsMenuHovered(false);
-    onShowDisplayCards(false);
-  };
+const Menubar: React.FC = () => {
+  
 
   return (
-    <Box onMouseLeave={handleMenuLeave}>
+    <Box >
       <AppBar
         position="static"
         style={{
@@ -46,19 +34,19 @@ const Menubar: React.FC<MenubarProps> = ({ onShowDisplayCards }) => {
           >
             <HoverElement
               style={{ marginRight: "15px", marginBottom: "25px" }}
-              onMouseEnter={handleMenuHover}
+              
             >
               Characters
             </HoverElement>
             <HoverElement
               style={{ marginRight: "15px", marginBottom: "25px" }}
-              onMouseEnter={handleMenuHover}
+              
             >
               Comics
             </HoverElement>
             <HoverElement
               style={{ marginRight: "15px", marginBottom: "25px" }}
-              onMouseEnter={handleMenuHover}
+              
             >
               Movies
             </HoverElement>
