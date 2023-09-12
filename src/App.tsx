@@ -9,18 +9,21 @@ import DisplayCards from "./Components/molecules/DisplayCards";
 import { Slider1 } from "./Components/organisms/Slider1";
 import PosterBackground from './Components/atoms/PosterLogo';
 import { Poster } from './Components/molecules/Poster';
-
+import CardImages from './Components/atoms/CardImages';
+import ComicSection from './Components/molecules/ComicSection';
+import { Box } from '@mui/material';
 
 const App: React.FC = () => {
   const [Characters, setCharacters] = useState<any[]>([]);
-  const [Movies,setMovies]=useState<any[]>([]);
-  const [Comics,setComics]=useState<any[]>([]);
+  const [Movies, setMovies] = useState<any[]>([]);
+  const [Comics, setComics] = useState<any[]>([]);
   const [isMenuHovered, setIsMenuHovered] = useState(false);
+
   useEffect(() => {
     const publicKey = 'fbae50a994a9c88e0db414c5488142de';
     const privateKey = 'bf8510677df0531b2544c2e3c1cf1396979ff23f';
     const ts = new Date().getTime().toString();
-    const hash = MD5(ts + privateKey + publicKey).toString(); // Generate MD5 hash
+    const hash = MD5(ts + privateKey + publicKey).toString();
 
     const apiUrl = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
@@ -39,11 +42,14 @@ const App: React.FC = () => {
   return (
     <>
       <Header />
-      <Menubar/>
+      <Menubar />
       {/* <Tagline/>
       <Slider1/> */}
-      <Poster/>
-     
+      <div>
+        <Poster />
+        <br />
+        <ComicSection />
+      </div>
     </>
   );
 };

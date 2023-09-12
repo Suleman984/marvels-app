@@ -8,7 +8,7 @@ const PosterLogo = () => {
     <Box >
       {/* Your content goes here */}
       <Box >
-        <img src="https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png" alt="posterlogo" />
+        <img src="https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png" alt="posterlogo" width='auto'/>
       </Box>
     </Box>
   )
