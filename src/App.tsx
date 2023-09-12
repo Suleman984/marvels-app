@@ -4,14 +4,10 @@ import { MD5 } from 'crypto-js';
 import "./App.css";
 import Header from "./Components/organisms/Header";
 import Menubar from "./Components/organisms/Menubar";
-import Tagline from "./Components/atoms/Tagline";
-import DisplayCards from "./Components/molecules/DisplayCards";
-import { Slider1 } from "./Components/organisms/Slider1";
-import PosterBackground from './Components/atoms/PosterLogo';
 import { Poster } from './Components/molecules/Poster';
-import CardImages from './Components/atoms/CardImages';
 import ComicSection from './Components/molecules/ComicSection';
 import { Box } from '@mui/material';
+import Video from './Components/atoms/Video';
 
 const App: React.FC = () => {
   const [Characters, setCharacters] = useState<any[]>([]);
@@ -50,6 +46,9 @@ const App: React.FC = () => {
         <br />
         <ComicSection />
       </div>
+      <Box style={{width:'100%',height:'100vh'}}>
+        <Video/>
+      </Box>
     </>
   );
 };
