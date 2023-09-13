@@ -53,7 +53,7 @@ const App: React.FC = () => {
       {/* <Tagline/>
       <Slider1/> */}
       <div>
-        <Poster />
+        <Poster poster={Poster1}/>
         <br />
         <ComicSection />
       </div>

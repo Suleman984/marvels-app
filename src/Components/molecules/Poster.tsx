@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import PosterInnerBox from "../atoms/PosterInnerBox";
 import CardImages from "../atoms/CardImages";
 import PosterCards from "../atoms/PosterCards";
+import { PosterTypes } from "../../Interfaces/PosterInterfaces";
 
 const PosterBox = styled(Box)`
   width: 100%;
@@ -16,7 +17,7 @@ const PosterBox = styled(Box)`
   z-index: 1; /* Add this line to set the z-index */
 `;
 
-export const Poster:React.FC = () => {
+export const Poster:React.FC<{ poster: PosterTypes }> = ({poster}) => {
   return (
     <>
       <PosterBox>
