@@ -29,7 +29,7 @@ export const Poster:React.FC<{ poster: PosterTypes }> = ({poster}) => {
           }}
         >
           <PosterLogo />
-          <PosterInnerBox />
+          <PosterInnerBox poster={poster}/>
         </Box>
         <Box style={{ width: '90%', margin: 'auto', marginTop: "200px" }}>
           <PosterCards />
