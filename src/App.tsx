@@ -14,7 +14,21 @@ const App: React.FC = () => {
   const [Movies, setMovies] = useState<any[]>([]);
   const [Comics, setComics] = useState<any[]>([]);
   const [isMenuHovered, setIsMenuHovered] = useState(false);
-
+  interface Poster{
+    mainText:string,
+    mainHeading:string,
+    text:string
+  }
+  const Poster1:Poster={
+    mainText:"Available Now",
+    mainHeading:"NEW ON MARVEL UNLIMITED",
+    text:"Read these plus 30,000+ digital comics for $9.99 a month!"
+  }
+  const Poster2:Poster={
+    mainText:"ON SALE 9/13",
+    mainHeading:"NEW COMICS THIS WEEK",
+    text:"Check out the newest Marvel comics coming out this week!"
+  }
   useEffect(() => {
     const publicKey = 'fbae50a994a9c88e0db414c5488142de';
     const privateKey = 'bf8510677df0531b2544c2e3c1cf1396979ff23f';

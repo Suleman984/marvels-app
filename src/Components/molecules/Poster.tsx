@@ -16,7 +16,7 @@ const PosterBox = styled(Box)`
   z-index: 1; /* Add this line to set the z-index */
 `;
 
-export const Poster = () => {
+export const Poster:React.FC = () => {
   return (
     <>
       <PosterBox>
