@@ -8,23 +8,20 @@ import { Poster } from './Components/molecules/Poster';
 import ComicSection from './Components/molecules/ComicSection';
 import { Box } from '@mui/material';
 import Video from './Components/atoms/Video';
+import { PosterTypes } from './Interfaces/PosterInterfaces';
 
 const App: React.FC = () => {
   const [Characters, setCharacters] = useState<any[]>([]);
   const [Movies, setMovies] = useState<any[]>([]);
   const [Comics, setComics] = useState<any[]>([]);
   const [isMenuHovered, setIsMenuHovered] = useState(false);
-  interface Poster{
-    mainText:string,
-    mainHeading:string,
-    text:string
-  }
-  const Poster1:Poster={
+ 
+  const Poster1:PosterTypes={
     mainText:"Available Now",
     mainHeading:"NEW ON MARVEL UNLIMITED",
     text:"Read these plus 30,000+ digital comics for $9.99 a month!"
   }
-  const Poster2:Poster={
+  const Poster2:PosterTypes={
     mainText:"ON SALE 9/13",
     mainHeading:"NEW COMICS THIS WEEK",
     text:"Check out the newest Marvel comics coming out this week!"
