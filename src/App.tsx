@@ -10,6 +10,7 @@ import { Box } from "@mui/material";
 import Video from "./Components/atoms/Video";
 import { PosterTypes } from "./Interfaces/PosterInterfaces";
 import { VideoDesc } from "./Interfaces/videoDescription";
+import BasicTabs from "./Components/atoms/VideoCards";
 const App: React.FC = () => {
   const [Characters, setCharacters] = useState<any[]>([]);
   const [Movies, setMovies] = useState<any[]>([]);
@@ -72,6 +73,9 @@ const App: React.FC = () => {
       </Box>
       <Box>
         <Poster poster={Poster2}/>
+      </Box>
+      <Box style={{width:'80%',height:'100px',margin:'auto'}}>
+        <BasicTabs/>
       </Box>
     </>
   );
