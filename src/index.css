@@ -11,3 +11,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.custom-tabs {
+  z-index: 1; /* Adjust the z-index value as needed */
+}

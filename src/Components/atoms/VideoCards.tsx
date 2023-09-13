@@ -52,7 +52,7 @@ const BasicTabs=()=> {
   ];
 
   return (
-    <Box sx={{ width: '100%', backgroundColor: 'whitesmoke', margin: 'auto', height: '100px' }}>
+    <Box sx={{ width: '100%', backgroundColor: 'whitesmoke', margin: 'auto', height: '200px' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
           value={value}

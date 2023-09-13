@@ -18,24 +18,23 @@ const App: React.FC = () => {
   const [isMenuHovered, setIsMenuHovered] = useState(false);
 
   const Poster1: PosterTypes = {
-    imgSrc:'https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png',
+    imgSrc: "https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png",
     mainText: "Available Now",
     mainHeading: "NEW ON MARVEL UNLIMITED",
     text: "Read these plus 30,000+ digital comics for $9.99 a month!",
-    backgroundImage:"./Assets/marvelbackground.jpg"
+    backgroundImage: "./Assets/marvelbackground.jpg",
   };
   const Poster2: PosterTypes = {
-    imgSrc:'https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png',
+    imgSrc: "https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png",
     mainText: "ON SALE 9/13",
     mainHeading: "NEW COMICS THIS WEEK",
     text: "Check out the newest Marvel comics coming out this week!",
-    backgroundImage:"./Assets/poster.jpg"
+    backgroundImage: "./Assets/poster.jpg",
   };
   const VideoDetails: VideoDesc = {
     mainText: "TRAILERS & EXTRAS",
     videoTitle: "Aug. `X-Force Vol.2` Themed Update! | Marvel Future Fight",
-    descText:
-      `Check out Cable, Domino and Stryfe with new powerful X-Force Vol.2 \n themed uniforms as well as the newly arisen super villain Omega Red`,
+    descText: `Check out Cable, Domino and Stryfe with new powerful X-Force Vol.2 \n themed uniforms as well as the newly arisen super villain Omega Red`,
   };
   useEffect(() => {
     const publicKey = "fbae50a994a9c88e0db414c5488142de";
@@ -71,11 +70,11 @@ const App: React.FC = () => {
       <Box style={{ width: "100%", height: "60vh" }}>
         <Video details={VideoDetails} />
       </Box>
-      <Box>
-        <Poster poster={Poster2}/>
+      <Box className="custom-tabs" style={{ width: "90%", height: "250px",margin:'auto' }}>
+        <BasicTabs />
       </Box>
-      <Box style={{width:'80%',height:'100px',margin:'auto'}}>
-        <BasicTabs/>
+      <Box>
+        <Poster poster={Poster2} />
       </Box>
     </>
   );
