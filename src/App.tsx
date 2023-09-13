@@ -17,14 +17,18 @@ const App: React.FC = () => {
   const [isMenuHovered, setIsMenuHovered] = useState(false);
 
   const Poster1: PosterTypes = {
+    imgSrc:'https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png',
     mainText: "Available Now",
     mainHeading: "NEW ON MARVEL UNLIMITED",
     text: "Read these plus 30,000+ digital comics for $9.99 a month!",
+    backgroundImage:"./Assets/marvelbackground.jpg"
   };
   const Poster2: PosterTypes = {
+    imgSrc:'https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png',
     mainText: "ON SALE 9/13",
     mainHeading: "NEW COMICS THIS WEEK",
     text: "Check out the newest Marvel comics coming out this week!",
+    backgroundImage:"./Assets/poster.jpg"
   };
   const VideoDetails: VideoDesc = {
     mainText: "TRAILERS & EXTRAS",
@@ -63,8 +67,11 @@ const App: React.FC = () => {
         <br />
         <ComicSection />
       </div>
-      <Box style={{ width: "100%", height: "100vh" }}>
+      <Box style={{ width: "100%", height: "60vh" }}>
         <Video details={VideoDetails} />
+      </Box>
+      <Box>
+        <Poster poster={Poster2}/>
       </Box>
     </>
   );

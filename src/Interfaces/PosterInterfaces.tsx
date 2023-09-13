@@ -1,7 +1,9 @@
 
 export interface PosterTypes {
-    mainText: string;
-    mainHeading: string;
-    text: string;
+    imgSrc:string,
+    mainText: string,
+    mainHeading: string,
+    text: string,
+    backgroundImage:string
   }
   

@@ -1,6 +1,6 @@
 import React from "react";
 import { VideoDesc } from "../../Interfaces/videoDescription";
-import { Typography } from "@mui/material";
+import { Typography,Box } from "@mui/material";
 import styled from "@emotion/styled";
 
 const StyledTypography = styled(Typography)`
@@ -26,9 +26,11 @@ const Video: React.FC<{ details: VideoDesc }> = ({ details }) => {
       </div>
       <div style={{ width: "100%", height: "40%" }}>
         {/* Use the StyledTypography component */}
-        <StyledTypography>{details.mainText}</StyledTypography>
-        <StyledTypography variant="h5">{details.videoTitle}</StyledTypography>
-        <StyledTypography>{details.descText}</StyledTypography>
+        <Box width="35%">
+        <StyledTypography style={{fontWeight:'bold'}}>{details.mainText}</StyledTypography>
+        <StyledTypography variant="h6">{details.videoTitle}</StyledTypography>
+        <StyledTypography style={{fontWeight:'bold'}}>{details.descText}</StyledTypography>
+        </Box>
       </div>
     </div>
   );

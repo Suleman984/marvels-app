@@ -1,16 +1,18 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 
-const PosterLogo = () => {
+const PosterLogo:React.FC<{logoSource:string}> = (props) => {
  
  
   return (
     <Box >
       {/* Your content goes here */}
       <Box >
-        <img src="https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png" alt="posterlogo" width='auto'/>
+        <img src={props.logoSource} alt="posterlogo" width='auto'/>
+        
       </Box>
     </Box>
   )
 }
 export default PosterLogo;
+
