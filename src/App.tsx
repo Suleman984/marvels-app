@@ -83,6 +83,7 @@ const App: React.FC = () => {
       </Box>
       <Box>
         <Poster poster={Poster2} cards={Comics} />
+        <br />
       </Box>
       <Box style={{width:'100%',height:'100vh'}}>
         <Footer/>
