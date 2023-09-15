@@ -16,27 +16,43 @@ const CardImages: React.FC<{ comics: any[] }> = ({ comics }) => {
         style={{
           display: "flex",
           justifyContent: "center",
-          gap: "20px", // Equal spacing between boxes
-          flexWrap: "wrap", // Wrap boxes to the next line if they don't fit horizontally
+          gap: "20px", 
+          flexWrap: "wrap", 
+          boxShadow: "0px 4px 6px rgba(0, 100, 200, 0.1)",
         }}
       >
-        {/* Map through the comics data and display the first 10 comics */}
         {comicsToDisplay.map((comic, index) => (
           <Box
             key={index}
             sx={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center", // Center align content
-              maxWidth: "100px", // Limit the maximum width
+              alignItems: "center", 
+              maxWidth: "100px", 
+              cursor: "pointer", 
             }}
           >
             <img
               src={imageUrl}
               alt="cardImage"
-              style={{ maxWidth: "100%", height: "auto", maxHeight: "200px" }} // Maintain aspect ratio
+              style={{ maxWidth: "100%", height: "auto", maxHeight: "200px" }} 
             />
-            <Typography component="div" style={{ marginTop: "5px" }}>
+            <Typography
+              component="div"
+              style={{
+                marginTop: "5px",
+                color: "black", 
+                transition: "color 0.3s", 
+              }}
+              onMouseEnter={(e) => {
+               
+                e.currentTarget.style.color = "red";
+              }}
+              onMouseLeave={(e) => {
+               
+                e.currentTarget.style.color = "black";
+              }}
+            >
               {comic.name}
             </Typography>
           </Box>

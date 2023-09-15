@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import DisplayCards from "../molecules/DisplayCards";
-import Tagline from "../atoms/Tagline"; // Import your Tagline component
+import Tagline from "../atoms/Tagline";
 import { Slider1 } from "../organisms/Slider1";
 
 const HoverElement = styled(Typography)`
@@ -14,12 +14,16 @@ const HoverElement = styled(Typography)`
     border-bottom: 1px solid red;
   }
 `;
-const   comicHeadings=['Deadpool','Avengers','Marvel Premiere']
-const   storiesHeadings=['Flash','Arrow','Savitar']
-const   seriesHeadings=['Cover','The 3-D','Avengers Infinity']
-const HeadingText:string='';
 
-const Menubar: React.FC<{ comics: any[], series: any[], stories: any[] }> = ({ comics, series, stories }) => {
+const comicHeadings = ["Deadpool", "Avengers", "Marvel Premiere"];
+const storiesHeadings = ["Flash", "Arrow", "Savitar"];
+const seriesHeadings = ["Cover", "The 3-D", "Avengers Infinity"];
+
+const Menubar: React.FC<{
+  comics: any[];
+  series: any[];
+  stories: any[];
+}> = ({ comics, series, stories }) => {
   const [isDisplayCardsVisible, setIsDisplayCardsVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null); // State to track the active category
 
@@ -39,7 +43,7 @@ const Menubar: React.FC<{ comics: any[], series: any[], stories: any[] }> = ({ c
         position="static"
         style={{
           backgroundColor: "#202020",
-          borderBottom: "0.5px solid grey",
+          borderBottom: "0.1px solid grey",
           height: "6vh",
         }}
       >
@@ -50,33 +54,58 @@ const Menubar: React.FC<{ comics: any[], series: any[], stories: any[] }> = ({ c
           >
             <HoverElement
               style={{ marginRight: "15px", marginBottom: "25px" }}
-              onMouseEnter={() => handleMenuHover("stories")} // Handle hover for stories
+              onMouseEnter={() => handleMenuHover("stories")}
             >
               Stories
             </HoverElement>
             <HoverElement
               style={{ marginRight: "15px", marginBottom: "25px" }}
-              onMouseEnter={() => handleMenuHover("comics")} // Handle hover for comics
+              onMouseEnter={() => handleMenuHover("comics")}
             >
               Comics
             </HoverElement>
             <HoverElement
               style={{ marginRight: "15px", marginBottom: "25px" }}
-              onMouseEnter={() => handleMenuHover("series")} // Handle hover for series
+              onMouseEnter={() => handleMenuHover("series")}
             >
               Series
             </HoverElement>
           </Toolbar>
         </Container>
       </AppBar>
-      {isDisplayCardsVisible && (
-        <Box>
-          {/* Pass the appropriate data based on the active category */}
-          {activeCategory === "comics" && <DisplayCards data={comics} headings={comicHeadings} HeadingText={'Comics'}/>}
-          {activeCategory === "stories" && <DisplayCards data={stories} headings={storiesHeadings} HeadingText={'Stories'}/>}
-          {activeCategory === "series" && <DisplayCards data={series} headings={seriesHeadings} HeadingText={'Series'}/>}
-        </Box>
-      )}
+      <Box>
+        {!isDisplayCardsVisible && (
+          <Box>
+            <Tagline />
+            <Slider1 />
+          </Box>
+        )}
+        {isDisplayCardsVisible && (
+          <Box>
+            {activeCategory === "comics" && (
+              <DisplayCards
+                data={comics}
+                headings={comicHeadings}
+                HeadingText={"Comics"}
+              />
+            )}
+            {activeCategory === "stories" && (
+              <DisplayCards
+                data={stories}
+                headings={storiesHeadings}
+                HeadingText={"Stories"}
+              />
+            )}
+            {activeCategory === "series" && (
+              <DisplayCards
+                data={series}
+                headings={seriesHeadings}
+                HeadingText={"Series"}
+              />
+            )}
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 };

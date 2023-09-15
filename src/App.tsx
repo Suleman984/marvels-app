@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { MD5 } from "crypto-js";
 import "./App.css";
-import Header from "./Components/organisms/Header";
 import Menubar from "./Components/organisms/Menubar";
 import { Poster } from "./Components/molecules/Poster";
 import ComicSection from "./Components/molecules/ComicSection";
@@ -10,9 +9,9 @@ import { Box } from "@mui/material";
 import Video from "./Components/atoms/Video";
 import { PosterTypes } from "./Interfaces/PosterInterfaces";
 import { VideoDesc } from "./Interfaces/videoDescription";
-import BasicTabs from "./Components/atoms/VideoCards";
 import { Footer } from "./Components/organisms/Footer";
-import { Details } from "@mui/icons-material";
+import VideoTabs from "./Components/atoms/VideoTabs";
+import Heading from "./Components/atoms/heading";
 const App: React.FC = () => {  
   const [Comics, setComics] = useState<any[]>([]);
   const [Series, setSeries] = useState<any[]>([]);
@@ -66,20 +65,20 @@ const App: React.FC = () => {
   return (
     
     <>
-      <Header />
+      <Heading/>
       <Menubar comics={Comics} series={Series} stories={Stories}/>
       {/* <Tagline/>
       <Slider1/> */}
-      <div>
+      <Box>
         <Poster poster={Poster1} cards={Comics}/>
         <br />
-        <ComicSection />
-      </div>
+        <ComicSection comics={Comics}/>
+      </Box>
       <Box style={{ width: "100%", height: "60vh" }}>
         <Video details={VideoDetails} />
       </Box>
       <Box className="custom-tabs" style={{ width: "90%", height: "250px",margin:'auto' }}>
-        <BasicTabs />
+        <VideoTabs />
       </Box>
       <Box>
         <Poster poster={Poster2} cards={Comics} />

@@ -1,52 +1,24 @@
 import React, { useState } from 'react';
 import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import { Youtubelinks } from './Links'; // Import the Youtubelinks array
+import VideoTab from './VideoTab';
 
-interface TabData {
+interface VideoData {
   label: string;
-  videoSrc: string; // Change imageSrc to videoSrc
+  videoSrc: string;
 }
 
-function CustomTab(props: TabData) {
-  const videoStyle = {
-    width: '100%', // Adjust the width as needed
-    height: 'auto', // Maintain aspect ratio
-  };
-
-  return (
-    <Tab
-      label={
-        <Box>
-          <iframe
-            title={props.label}
-            width="100%"
-            height="auto"
-            src={props.videoSrc} 
-            frameBorder="0"
-            allowFullScreen
-            style={videoStyle}
-          ></iframe>
-          <Typography variant="subtitle1">{props.label}</Typography>
-        </Box>
-      }
-    />
-  );
-}
-
-const BasicTabs = () => {
+function VideoTabs() {
   const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-  const tabData: TabData[] = Youtubelinks.map((link, index) => ({
+  const tabData: VideoData[] = Youtubelinks.map((link, index) => ({
     label: `Video ${index + 1}`,
     videoSrc: link, // Use the YouTube video link from Youtubelinks
-    
   }));
 
   return (
@@ -60,13 +32,12 @@ const BasicTabs = () => {
           aria-label="scrollable prevent tabs example"
         >
           {tabData.map((tab, index) => (
-            <CustomTab key={index} label={tab.label} videoSrc={tab.videoSrc} />
+            <VideoTab key={index} label={tab.label} videoSrc={tab.videoSrc} />
           ))}
         </Tabs>
       </Box>
-      
     </Box>
   );
 }
 
-export default BasicTabs;
+export default VideoTabs;
