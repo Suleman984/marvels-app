@@ -31,27 +31,18 @@ function CustomTab(props: TabData) {
     />
   );
 }
-
-function BasicTabs() {
+const imageSource:string='./Assets/marvels3.jpg'
+function BasicTabs({ cards }: { cards: any[] }) {
   const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-  const tabData: TabData[] = [
-    { label: 'Tab 1', imageSrc: './Assets/marvels2.jpg' },
-    { label: 'Tab 2', imageSrc: './Assets/marvels3.jpg' },
-    { label: 'Tab 3', imageSrc: './Assets/marvels4.jpg' },
-    { label: 'Tab 4', imageSrc: './Assets/marvels2.jpg' },
-    { label: 'Tab 5', imageSrc: './Assets/marvels3.jpg' },
-    { label: 'Tab 6', imageSrc: './Assets/marvels4.jpg' },
-    { label: 'Tab 7', imageSrc: './Assets/marvels2.jpg' },
-    { label: 'Tab 8', imageSrc: './Assets/marvels2.jpg' },
-    { label: 'Tab 9', imageSrc: './Assets/marvels2.jpg' },
-    { label: 'Tab 10', imageSrc: './Assets/marvels2.jpg' },
-    { label: 'Tab 11', imageSrc: './Assets/marvels2.jpg' },
-  ];
+  const tabData: TabData[] = cards.map((card, index) => ({
+    label: `Tab ${index + 1}`,
+    imageSrc: card.imageSrc, // Assuming each card has an 'imageSrc' property
+  }));
 
   return (
     <Box sx={{ width: '100%', backgroundColor: 'whitesmoke', margin: 'auto', height: '200px' }}>
@@ -64,7 +55,7 @@ function BasicTabs() {
           aria-label="scrollable prevent tabs example"
         >
           {tabData.map((tab, index) => (
-            <CustomTab key={index} label={tab.label} imageSrc={tab.imageSrc} />
+            <CustomTab key={index} label={tab.label} imageSrc={imageSource} />
           ))}
         </Tabs>
       </Box>

@@ -6,7 +6,7 @@ import PosterInnerBox from "../atoms/PosterInnerBox";
 import PosterCards from "../atoms/PosterCards";
 import { PosterTypes } from "../../Interfaces/PosterInterfaces";
 
-export const Poster: React.FC<{ poster: PosterTypes }> = ({ poster }) => {
+export const Poster: React.FC<{ poster: PosterTypes,cards:any }> = ({ poster,cards }) => {
   const imgSource: string = poster.imgSrc;
   return (
     <>
@@ -32,7 +32,7 @@ export const Poster: React.FC<{ poster: PosterTypes }> = ({ poster }) => {
           <PosterInnerBox poster={poster} />
         </Box>
         <Box style={{ width: "90%", margin: "auto", marginTop: "200px" }}>
-          <PosterCards />
+          <PosterCards cards={cards}/>
         </Box>
       </Box>
     </>

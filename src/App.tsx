@@ -71,7 +71,7 @@ const App: React.FC = () => {
       {/* <Tagline/>
       <Slider1/> */}
       <div>
-        <Poster poster={Poster1} />
+        <Poster poster={Poster1} cards={Comics}/>
         <br />
         <ComicSection />
       </div>
@@ -82,7 +82,7 @@ const App: React.FC = () => {
         <BasicTabs />
       </Box>
       <Box>
-        <Poster poster={Poster2} />
+        <Poster poster={Poster2} cards={Comics} />
       </Box>
       <Box style={{width:'100%',height:'100vh'}}>
         <Footer/>
