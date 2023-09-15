@@ -3,36 +3,32 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import styled from '@emotion/styled';
 
 interface TabData {
   label: string;
   imageSrc: string;
 }
 
-function CustomTab(props: TabData) {
-  const imageStyle = {
-    width: '100px',
-    height: '120px',
-    opacity: 1, // Adjust the opacity as needed
-  };
+const CustomTab = styled(Tab)`
+  &:hover {
+    cursor: pointer;
+    // Add your hover styles here
+    // For example, changing background color
+    background-color: lightgray;
+  }
+`;
 
-  return (
-    <Tab
-      label={
-        <Box>
-          <img
-            src={props.imageSrc}
-            alt={props.label}
-            style={imageStyle}
-          />
-          <Typography variant="subtitle1">{props.label}</Typography>
-        </Box>
-      }
-    />
-  );
-}
-const imageSource:string='./Assets/marvels3.jpg'
-const BasicTabs=({ cards }: { cards: any[] })=> {
+const HoverBox = styled(Box)`
+  &:hover {
+    cursor: pointer;
+    // Add your hover styles here
+    // For example, changing background color
+    background-color: lightgray;
+  }
+`;
+
+function BasicTabs({ cards }: { cards: any[] }) {
   const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -45,7 +41,7 @@ const BasicTabs=({ cards }: { cards: any[] })=> {
   }));
 
   return (
-    <Box sx={{ width: '100%', backgroundColor: 'whitesmoke', margin: 'auto', height: '200px' }}>
+    <HoverBox sx={{ width: '100%', backgroundColor: 'whitesmoke', margin: 'auto', height: '200px' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
           value={value}
@@ -55,12 +51,12 @@ const BasicTabs=({ cards }: { cards: any[] })=> {
           aria-label="scrollable prevent tabs example"
         >
           {tabData.map((tab, index) => (
-            <CustomTab key={index} label={tab.label} imageSrc={imageSource} />
+            <CustomTab key={index} label={tab.label} />
           ))}
         </Tabs>
       </Box>
       {/* Content for each tab goes here */}
-    </Box>
+    </HoverBox>
   );
 }
 

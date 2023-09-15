@@ -12,16 +12,31 @@ const CardImages: React.FC<{ comics: any[] }> = ({ comics }) => {
 
   return (
     <Card sx={{ minWidth: 275 }} style={{ marginTop: "50px" }}>
-      <CardContent style={{ display: "flex", justifyContent: "center" }}>
+      <CardContent
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "20px", // Equal spacing between boxes
+          flexWrap: "wrap", // Wrap boxes to the next line if they don't fit horizontally
+        }}
+      >
         {/* Map through the comics data and display the first 10 comics */}
         {comicsToDisplay.map((comic, index) => (
-          <Box key={index} sx={{ marginRight: "30px" }}>
+          <Box
+            key={index}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Center align content
+              maxWidth: "100px", // Limit the maximum width
+            }}
+          >
             <img
               src={imageUrl}
               alt="cardImage"
-              style={{ maxWidth: "100px", height: "200px" }}
+              style={{ maxWidth: "100%", height: "auto", maxHeight: "200px" }} // Maintain aspect ratio
             />
-            <Typography  component="div">
+            <Typography component="div" style={{ marginTop: "5px" }}>
               {comic.name}
             </Typography>
           </Box>

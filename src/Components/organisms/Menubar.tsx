@@ -17,6 +17,7 @@ const HoverElement = styled(Typography)`
 const   comicHeadings=['Deadpool','Avengers','Marvel Premiere']
 const   storiesHeadings=['Flash','Arrow','Savitar']
 const   seriesHeadings=['Cover','The 3-D','Avengers Infinity']
+const HeadingText:string='';
 
 const Menubar: React.FC<{ comics: any[], series: any[], stories: any[] }> = ({ comics, series, stories }) => {
   const [isDisplayCardsVisible, setIsDisplayCardsVisible] = useState(false);
@@ -71,9 +72,9 @@ const Menubar: React.FC<{ comics: any[], series: any[], stories: any[] }> = ({ c
       {isDisplayCardsVisible && (
         <Box>
           {/* Pass the appropriate data based on the active category */}
-          {activeCategory === "comics" && <DisplayCards data={comics} headings={comicHeadings}/>}
-          {activeCategory === "stories" && <DisplayCards data={stories} headings={storiesHeadings}/>}
-          {activeCategory === "series" && <DisplayCards data={series} headings={seriesHeadings}/>}
+          {activeCategory === "comics" && <DisplayCards data={comics} headings={comicHeadings} HeadingText={'Comics'}/>}
+          {activeCategory === "stories" && <DisplayCards data={stories} headings={storiesHeadings} HeadingText={'Stories'}/>}
+          {activeCategory === "series" && <DisplayCards data={series} headings={seriesHeadings} HeadingText={'Series'}/>}
         </Box>
       )}
     </Box>
