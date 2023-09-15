@@ -32,7 +32,7 @@ function CustomTab(props: TabData) {
   );
 }
 const imageSource:string='./Assets/marvels3.jpg'
-function BasicTabs({ cards }: { cards: any[] }) {
+const BasicTabs=({ cards }: { cards: any[] })=> {
   const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
