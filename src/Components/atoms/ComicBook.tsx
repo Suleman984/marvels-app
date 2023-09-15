@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import StyledButton from "./StyledButton"; // Import StyledButton from the correct path
 
@@ -29,7 +29,9 @@ const ComicBook = () => {
   return (
     <>
       <Box style={{ display: "flex",  width: "100%", height: "200px" }}>
+        <Box>
         <img src="./Assets/marvels2.jpg" alt="Comics" width="300px" height="100%" />
+        </Box>
         <Box marginLeft="16px">
           <Typography>Comics</Typography>
           <HoverElement variant="h5">
@@ -39,8 +41,10 @@ const ComicBook = () => {
         </Box>
       </Box>
       <hr />
-      <Box style={{margin:'auto',marginLeft:'300px'}}>
-        <StyledButton/>
+      <Box style={{margin:'auto',height:'10%',display:'flex',justifyContent:'left',marginBottom:'2%',marginTop:'2%',width:'100%'}}>
+        <Box style={{marginLeft:'10%'}}>
+        <Button variant="outlined">LOAD MORE</Button>
+        </Box>
       </Box>
     </>
   );
