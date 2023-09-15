@@ -8,23 +8,28 @@ import DisplayCards from "../molecules/DisplayCards";
 import Tagline from "../atoms/Tagline"; // Import your Tagline component
 import { Slider1 } from "../organisms/Slider1";
 
-
 const HoverElement = styled(Typography)`
   &:hover {
     cursor: pointer;
     border-bottom: 1px solid red;
   }
 `;
+const   comicHeadings=['Deadpool','Avengers','Marvel Premiere']
+const   storiesHeadings=['Flash','Arrow','Savitar']
+const   seriesHeadings=['series1','series2','series3']
 
-const Menubar: React.FC = () => {
+const Menubar: React.FC<{ comics: any[], series: any[], stories: any[] }> = ({ comics, series, stories }) => {
   const [isDisplayCardsVisible, setIsDisplayCardsVisible] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null); // State to track the active category
 
-  const handleMenuHover = () => {
+  const handleMenuHover = (category: string) => {
     setIsDisplayCardsVisible(true);
+    setActiveCategory(category); // Set the active category when hovering
   };
 
   const handleDisplayCardsLeave = () => {
     setIsDisplayCardsVisible(false);
+    setActiveCategory(null); // Reset the active category when leaving
   };
 
   return (
@@ -44,33 +49,31 @@ const Menubar: React.FC = () => {
           >
             <HoverElement
               style={{ marginRight: "15px", marginBottom: "25px" }}
-              onMouseEnter={handleMenuHover}
+              onMouseEnter={() => handleMenuHover("stories")} // Handle hover for stories
             >
-              Characters
+              Stories
             </HoverElement>
             <HoverElement
               style={{ marginRight: "15px", marginBottom: "25px" }}
-              onMouseEnter={handleMenuHover}
+              onMouseEnter={() => handleMenuHover("comics")} // Handle hover for comics
             >
               Comics
             </HoverElement>
             <HoverElement
               style={{ marginRight: "15px", marginBottom: "25px" }}
-              onMouseEnter={handleMenuHover}
+              onMouseEnter={() => handleMenuHover("series")} // Handle hover for series
             >
-              Movies
+              Series
             </HoverElement>
           </Toolbar>
         </Container>
       </AppBar>
-      {isDisplayCardsVisible ? (
+      {isDisplayCardsVisible && (
         <Box>
-          <DisplayCards />
-        </Box>
-      ) : (
-        <Box>
-          <Tagline /> {/* Show Tagline when not hovering over DisplayCards */}
-          <Slider1 /> {/* Show Slider1 when not hovering over DisplayCards */}
+          {/* Pass the appropriate data based on the active category */}
+          {activeCategory === "comics" && <DisplayCards data={comics} headings={comicHeadings}/>}
+          {activeCategory === "stories" && <DisplayCards data={stories} headings={seriesHeadings}/>}
+          {activeCategory === "series" && <DisplayCards data={series} headings={storiesHeadings}/>}
         </Box>
       )}
     </Box>

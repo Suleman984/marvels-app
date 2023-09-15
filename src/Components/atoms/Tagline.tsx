@@ -12,10 +12,10 @@ const HoverElement=styled(Typography)`
 `
 function Tagline() {
   return (
-    <AppBar position="static" style={{ backgroundColor: "#202020", height:'5vh' }}>
+    <AppBar position="static" style={{ backgroundColor: "#202020"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters style={{display:'flex',justifyContent:'center'}}>
-         <HoverElement style={{marginBottom:'20px'}}>STREAM GUARDIANS OF THE GALAXY VOL. 3 EXCLUSIVE ON DISNEP+</HoverElement>
+         <HoverElement style={{}}>STREAM GUARDIANS OF THE GALAXY VOL. 3 EXCLUSIVE ON DISNEP+</HoverElement>
         </Toolbar>
       </Container>
     </AppBar>

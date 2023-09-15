@@ -3,14 +3,16 @@ import {Box} from '@mui/material'
 import CardMenuBar from '../atoms/CardMenubar'
 import CardImages from '../atoms/CardImages'
 import CardHeadings from '../atoms/CardHeadings'
-const tempHeadings=['Comic1','Comic11','Comic13',]
- const DisplayCards = () => {
+
+const DisplayCards: React.FC<{ data: any[],headings:string[] }> = ({ data,headings }) => {
   return (
     <>
     <Box width='100%'>
-        <CardMenuBar headings={tempHeadings}></CardMenuBar>
+        <CardMenuBar headings={headings}></CardMenuBar>
         <CardHeadings headingText='Comics'/>
-        <CardImages/>
+        
+        <CardImages comics={data}/>
+        
     </Box>
     </>
   )

@@ -11,12 +11,12 @@ import Video from "./Components/atoms/Video";
 import { PosterTypes } from "./Interfaces/PosterInterfaces";
 import { VideoDesc } from "./Interfaces/videoDescription";
 import BasicTabs from "./Components/atoms/VideoCards";
-const App: React.FC = () => {
-  const [Characters, setCharacters] = useState<any[]>([]);
-  const [Movies, setMovies] = useState<any[]>([]);
+import { Footer } from "./Components/organisms/Footer";
+import { Details } from "@mui/icons-material";
+const App: React.FC = () => {  
   const [Comics, setComics] = useState<any[]>([]);
-  const [isMenuHovered, setIsMenuHovered] = useState(false);
-
+  const [Series, setSeries] = useState<any[]>([]);
+  const [Stories, setStories] = useState<any[]>([]);
   const Poster1: PosterTypes = {
     imgSrc: "https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png",
     mainText: "Available Now",
@@ -45,21 +45,29 @@ const App: React.FC = () => {
     const apiUrl = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
     axios
-      .get(apiUrl)
-      .then((response) => {
-        const data = response.data.data;
-        console.log(response.data);
-        setCharacters(data.results);
-      })
-      .catch((error) => {
-        console.error("Error fetching data from Marvel API:", error);
-      });
-  }, []);
+    .get(apiUrl)
+    .then((response) => {
+      const data = response.data.data;
+      const comicsData = data.results[0].comics.items;
+      const seriesData = data.results[0].series.items;
+      const storiesData = data.results[0].stories.items;
+        setComics(comicsData);
+        setSeries(seriesData);
+        setStories(storiesData);
+        console.log(comicsData)
+        console.log(data.results[0])
 
+    })
+    .catch((error) => {
+      console.error("Error fetching data from Marvel API:", error);
+    });
+}, []);
+  
   return (
+    
     <>
       <Header />
-      <Menubar />
+      <Menubar comics={Comics} series={Series} stories={Stories}/>
       {/* <Tagline/>
       <Slider1/> */}
       <div>
@@ -75,6 +83,9 @@ const App: React.FC = () => {
       </Box>
       <Box>
         <Poster poster={Poster2} />
+      </Box>
+      <Box style={{width:'100%',height:'100vh'}}>
+        <Footer/>
       </Box>
     </>
   );
