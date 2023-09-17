@@ -5,9 +5,9 @@ import { Box } from '@mui/material'
 
  const ComicSection:React.FC<{comics:any}> = ({comics}) => {
   return (
-    <Box style={{ position: "relative", zIndex: 2 }}>
+    <Box style={{ position: "relative", zIndex: 2 ,width:'100%'}}>
     <ComicBook comics={comics}/>
-    {/* <Mycomics/> */}
+    
     </Box>
   )
 }

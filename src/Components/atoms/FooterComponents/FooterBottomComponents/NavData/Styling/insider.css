@@ -1,0 +1,19 @@
+/* Insider.css */
+
+.insiderImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .insiderImage {
+    /* Add your CSS styles for mobile devices here */
+    /* For example, you can adjust the image size */
+    img {
+      width: 100%; /* Adjust the width as needed */
+    }
+  }
+}

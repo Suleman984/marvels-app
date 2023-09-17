@@ -1,0 +1,64 @@
+.boxWrapper{
+    width:100%;
+    height:100vh;
+}
+.boxWrapper .topComponents{
+    height:50%;
+    width: 100%;
+    display:flex;
+}
+.bottomWrapper{
+    display:flex;
+    width:100%;
+    height:50%;
+    background-color:#202020;
+    color:white;
+}
+/* Define styles for desktop screens */
+.bottomWrapper {
+    display: flex;
+    width: 100%;
+    
+  }
+  
+  .bottomWrapper > * {
+    width: 25%; /* Each component takes 25% width */
+    margin-top: 5%;
+    margin-left: 2%;
+  }
+  
+  /* Media query for screens with a maximum width of 600px (mobile screens) */
+  @media (max-width: 600px) {
+    .bottomWrapper {
+      width: 100%; /* Set the width to 100% for mobile screens */
+      flex-direction: column; /* Stack components vertically */
+      
+    }
+    .bottomWrapper > .logoClass{
+      text-align: center;
+      
+    }
+    .bottomWrapper > .navStyle{
+      
+      display: flex;
+      justify-content: center;
+    }
+    .bottomWrapper > .insiderStyle{
+      display: flex;
+      justify-content: center;
+    }
+    .bottomWrapper > .insiderStyle > *{
+      width: 100%;
+      height:50%
+ 
+      
+    }
+  
+    .bottomWrapper > * {
+      width: 100%; /* Each component takes 100% width in mobile view */
+      margin-left: 0; /* Remove left margin for components in mobile view */
+      margin-top: 2%; /* Adjust top margin for components in mobile view */
+      border-bottom: 1px solid grey;
+    }
+  }
+  

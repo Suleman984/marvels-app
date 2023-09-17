@@ -1,11 +1,9 @@
 import React from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, } from "@mui/material";
 import PosterLogo from "../atoms/PosterLogo";
-import styled from "@emotion/styled";
 import PosterInnerBox from "../atoms/PosterInnerBox";
 import PosterCards from "../atoms/PosterCards";
 import { PosterTypes } from "../../Interfaces/PosterInterfaces";
-
 export const Poster: React.FC<{ poster: PosterTypes,cards:any }> = ({ poster,cards }) => {
   const imgSource: string = poster.imgSrc;
   return (

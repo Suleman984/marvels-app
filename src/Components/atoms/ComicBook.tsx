@@ -1,6 +1,7 @@
-import styled from "@emotion/styled";
-import { Box, Button, Typography } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import { Box, Button, Typography } from '@mui/material';
+import { ComicAddresses } from '../ImageAddresses';
+import './styling/ComicBook.css'; // Import the CSS file
 
 const getRandomTime = () => {
   // Generate a random number between 1 and 7 for days
@@ -12,74 +13,64 @@ const getRandomTime = () => {
   return `${randomDays} days, ${randomHours} hours ago`;
 };
 
-const HoverElement = styled(Typography)`
-  color: inherit;
-
-  a {
-    color: black; /* Default text color for the anchor element */
-    text-decoration: none;
-
-    &:hover {
-      color: red; /* Text color when hovering the anchor element */
-      cursor: pointer;
-    }
-  }
-`;
-
 const ComicBook: React.FC<{ comics: any }> = ({ comics }) => {
   const randomTime = getRandomTime();
+  const [totalComics, setTotalComics] = useState<string[]>(comics.slice(0, 7));
+  const [showAllComics, setShowAllComics] = useState(false);
+
+  const toggleShowAllComics = () => {
+    setShowAllComics(!showAllComics);
+  };
+
+  useEffect(() => {
+    if (showAllComics) {
+      setTotalComics(comics);
+    } else {
+      setTotalComics(comics.slice(0, 7));
+    }
+  }, [showAllComics, comics]);
 
   return (
-    <Box width="100%">
-      <Typography variant="h5" marginLeft="8%">
+    <Box className="ComicBook-container" width="100%">
+      <Typography variant="h5" className="ComicBook-title">
         THE LATEST
       </Typography>
-      <Box style={{ display: "flex", flexDirection: "column", width: "100%",marginBottom:'10px' }}>
-        {comics.map((comic: any, index: number) => (
+      {totalComics.map((comic: any, index: number) => (
+        <Box
+          key={index}
+          className="ComicBook-comicContainer"
+        >
           <Box
-            key={index}
-            style={{
-              display: "flex",
-              width: "100%",
-              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-              // backgroundColor: "#f4f4f4", // Add your shadow styles here
-            }}
+            className="ComicBook-comicBox"
           >
-            <Box marginLeft="10%">
+            <Box className="ComicBook-comicImage">
               <img
-                src="./Assets/marvels2.jpg"
+                src={ComicAddresses[index]}
                 alt={comic.name}
-                width="300px"
-                height="200px"
               />
             </Box>
-            <Box marginLeft="16px">
-              <Typography>{comic.name}</Typography>
-              <HoverElement variant="h5">
-                <a href="www.marvel.com" style={{ textDecoration: "none" }}>
+            <Box className="ComicBook-comicInfo">
+              <Typography className="ComicBook-comicName">
+                {comic.name}
+              </Typography>
+              <Typography variant="h5" className="ComicBook-link">
+                <a href="www.marvel.com" className="ComicBook-link">
                   Hello Comic World
                 </a>
-              </HoverElement>
+              </Typography>
               <Typography variant="subtitle1">{randomTime}</Typography>
             </Box>
-            
           </Box>
-          
-        ))}
-        <hr />
-      </Box>
-
-      <hr />
-      <Box style={{ margin: "auto", width: "100%" }}>
-        <Box
-          style={{
-            marginLeft: "10%",
-            paddingTop: "15px",
-            paddingBottom: "15px",
-          }}
-        >
-          <Button variant="outlined">LOAD MORE</Button>
         </Box>
+      ))}
+      <hr />
+      <Box className="ComicBook-loadMoreButton" >
+        <Button
+          variant="outlined"
+          onClick={toggleShowAllComics}
+        >
+          {showAllComics ? 'HIDE' : 'LOAD MORE'}
+        </Button>
       </Box>
     </Box>
   );

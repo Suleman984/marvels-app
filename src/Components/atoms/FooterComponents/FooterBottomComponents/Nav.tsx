@@ -14,10 +14,10 @@ export const Nav = () => {
           boxSizing:'border-box'
         }}
       >
-      <a href="#"><ListItem>{NavData[0].text1}</ListItem></a>
-      <a href="#"><ListItem>{NavData[0].text2}</ListItem></a>
-      <a href="#"><ListItem>{NavData[0].text3}</ListItem></a>
-      <a href="#"><ListItem>{NavData[0].text4}</ListItem></a>
+      <a href="#" style={{textDecoration:'none',color:'white'}}><ListItem>{NavData[0].text1}</ListItem></a>
+      <a href="#" style={{textDecoration:'none',color:'white'}}><ListItem>{NavData[0].text2}</ListItem></a>
+      <a href="#" style={{textDecoration:'none',color:'white'}}><ListItem>{NavData[0].text3}</ListItem></a>
+      <a href="#" style={{textDecoration:'none',color:'white'}}><ListItem>{NavData[0].text4}</ListItem></a>
       </List>
     </Box>
      <Box>
@@ -30,10 +30,10 @@ export const Nav = () => {
          boxSizing:'border-box'
        }}
      >
-     <a href="#"><ListItem>{NavData[1].text1}</ListItem></a>
-      <a href="#"><ListItem>{NavData[1].text2}</ListItem></a>
-      <a href="#"><ListItem>{NavData[1].text3}</ListItem></a>
-      <a href="#"><ListItem>{NavData[1].text4}</ListItem></a>
+     <a href="#" style={{textDecoration:'none',color:'white'}}><ListItem>{NavData[1].text1}</ListItem></a>
+      <a href="#" style={{textDecoration:'none',color:'white'}}><ListItem>{NavData[1].text2}</ListItem></a>
+      <a href="#" style={{textDecoration:'none',color:'white'}}><ListItem>{NavData[1].text3}</ListItem></a>
+      <a href="#" style={{textDecoration:'none',color:'white'}}><ListItem>{NavData[1].text4}</ListItem></a>
      </List>
    </Box>
    </Box>

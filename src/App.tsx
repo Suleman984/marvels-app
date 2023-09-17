@@ -12,7 +12,10 @@ import { VideoDesc } from "./Interfaces/videoDescription";
 import { Footer } from "./Components/organisms/Footer";
 import VideoTabs from "./Components/atoms/VideoTabs";
 import Heading from "./Components/atoms/heading";
-const App: React.FC = () => {  
+import { ComicAddresses } from "./Components/ImageAddresses";
+import { StoriesAddresses } from "./Components/ImageAddresses";
+import { SeriesAddresses } from "./Components/ImageAddresses";
+const App=()=>{
   const [Comics, setComics] = useState<any[]>([]);
   const [Series, setSeries] = useState<any[]>([]);
   const [Stories, setStories] = useState<any[]>([]);
@@ -66,10 +69,18 @@ const App: React.FC = () => {
     
     <>
       <Heading/>
-      <Menubar comics={Comics} series={Series} stories={Stories}/>
+      <Menubar
+  comics={Comics}
+  series={Series}
+  stories={Stories}
+  comicImages={ComicAddresses}
+  storyImages={StoriesAddresses} // Corrected prop name
+  seriesImages={SeriesAddresses}
+/>
+
       {/* <Tagline/>
       <Slider1/> */}
-      <Box>
+      <Box maxWidth='100%'>
         <Poster poster={Poster1} cards={Comics}/>
         <br />
         <ComicSection comics={Comics}/>

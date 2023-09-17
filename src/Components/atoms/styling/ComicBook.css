@@ -1,0 +1,74 @@
+/* ComicBook.css */
+
+/* Default text color for the anchor element */
+.ComicBook-link {
+    color: black;
+    text-decoration: none;
+  }
+  
+  /* Text color when hovering the anchor element */
+  .ComicBook-link:hover {
+    color: red;
+    cursor: pointer;
+  }
+  
+  .ComicBook-container {
+    width: 100%;
+  }
+  
+  .ComicBook-title {
+    margin-left: 8%;
+  }
+  
+  .ComicBook-comicContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .ComicBook-comicBox {
+    display: flex;
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ComicBook-comicImage {
+    margin-left: 10%;
+  }
+  
+  .ComicBook-comicImage img {
+    width: 300px;
+    height: 200px;
+  }
+  
+  .ComicBook-comicInfo {
+    margin-left: 16px;
+  }
+  
+  .ComicBook-comicName {
+    font-weight: bold;
+  }
+  
+  .ComicBook-loadMoreButton {
+    display: flex;
+    width: 100%;
+    
+  }
+  
+  /* Media query for screens with a maximum width of 600px (mobile screens) */
+  @media (max-width: 600px) {
+    .ComicBook-comicBox {
+      flex-direction: column;
+    }
+  
+    .ComicBook-comicImage {
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    .ComicBook-comicImage img {
+      margin: 0 auto;
+    }
+  }
+  

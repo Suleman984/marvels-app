@@ -7,6 +7,9 @@ import styled from "@emotion/styled";
 import DisplayCards from "../molecules/DisplayCards";
 import Tagline from "../atoms/Tagline";
 import { Slider1 } from "../organisms/Slider1";
+import { ComicAddresses } from "../ImageAddresses";
+import { StoriesAddresses } from "../ImageAddresses";
+import { SeriesAddresses } from "../ImageAddresses";
 
 const HoverElement = styled(Typography)`
   &:hover {
@@ -23,7 +26,10 @@ const Menubar: React.FC<{
   comics: any[];
   series: any[];
   stories: any[];
-}> = ({ comics, series, stories }) => {
+  comicImages: string[];
+  storyImages: string[];
+  seriesImages: string[];
+}> = ({ comics, series, stories, comicImages, storyImages, seriesImages }) => {
   const [isDisplayCardsVisible, setIsDisplayCardsVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null); // State to track the active category
 
@@ -87,6 +93,8 @@ const Menubar: React.FC<{
                 data={comics}
                 headings={comicHeadings}
                 HeadingText={"Comics"}
+                Images={comicImages} // Pass the comicImages prop
+                
               />
             )}
             {activeCategory === "stories" && (
@@ -94,6 +102,8 @@ const Menubar: React.FC<{
                 data={stories}
                 headings={storiesHeadings}
                 HeadingText={"Stories"}
+                
+                Images={storyImages} // Pass the storyImages prop
               />
             )}
             {activeCategory === "series" && (
@@ -101,6 +111,9 @@ const Menubar: React.FC<{
                 data={series}
                 headings={seriesHeadings}
                 HeadingText={"Series"}
+                
+                Images={seriesImages} // Pass the seriesImages prop
+                
               />
             )}
           </Box>

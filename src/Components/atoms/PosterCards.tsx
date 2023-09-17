@@ -1,38 +1,58 @@
-import React, { useState } from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-
+import React, { useState } from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import { comicNames } from "../ImageAddresses";
+import { ComicAddresses } from "../ImageAddresses";
 interface TabData {
   label: string;
   imageSrc: string;
 }
 
-function CustomTab(props: TabData) {
+const CustomTab = (props: TabData) => {
   const imageStyle = {
-    width: '100px',
-    height: '120px',
+    width: "100px",
+    height: "120px",
     opacity: 1, // Adjust the opacity as needed
+  };
+
+  const tabStyle = {
+    marginBottom: "5px", // Initial marginBottom
+  };
+  const imageHoverStyle = {
+    cursor: "pointer", // Change cursor to pointer on hover over the image
   };
 
   return (
     <Tab
       label={
-        <Box>
+        <Box style={tabStyle}>
           <img
             src={props.imageSrc}
             alt={props.label}
-            style={imageStyle}
+            style={{
+              ...imageStyle,
+              ...imageHoverStyle, // Apply hover style
+            }}
+            className="image-hover" // Add a class to the image
           />
-          <Typography variant="subtitle1">{props.label}</Typography>
+          <Typography
+            variant="subtitle1"
+            style={{
+              transition: "color 0.5s",
+              color: "black",
+            }}
+          >
+            {props.label}
+          </Typography>
         </Box>
       }
     />
   );
-}
-const imageSource:string='./Assets/marvels3.jpg'
-const BasicTabs=({ cards }: { cards: any[] })=> {
+};
+
+const BasicTabs = ({ cards }: { cards: any[] }) => {
   const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -45,8 +65,17 @@ const BasicTabs=({ cards }: { cards: any[] })=> {
   }));
 
   return (
-    <Box sx={{ width: '100%', backgroundColor: 'white', margin: 'auto', height: '200px' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+    <Box
+      sx={{
+        width: "100%",
+        backgroundColor: "white",
+        margin: "auto",
+        height: "200px",
+        opacity:'1',
+        
+      }}
+    >
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -55,13 +84,17 @@ const BasicTabs=({ cards }: { cards: any[] })=> {
           aria-label="scrollable prevent tabs example"
         >
           {tabData.map((tab, index) => (
-            <CustomTab key={index} label={tab.label} imageSrc={imageSource} />
+            <CustomTab
+              key={index}
+              label={comicNames[index]}
+              imageSrc={ComicAddresses[index]}
+            />
           ))}
         </Tabs>
       </Box>
       {/* Content for each tab goes here */}
     </Box>
   );
-}
+};
 
 export default BasicTabs;
