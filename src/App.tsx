@@ -15,6 +15,7 @@ import Heading from "./Components/atoms/heading";
 import { ComicAddresses } from "./Components/ImageAddresses";
 import { StoriesAddresses } from "./Components/ImageAddresses";
 import { SeriesAddresses } from "./Components/ImageAddresses";
+import { LoginForm } from "./Components/atoms/LoginForm";
 const App=()=>{
   const [Comics, setComics] = useState<any[]>([]);
   const [Series, setSeries] = useState<any[]>([]);
@@ -43,9 +44,7 @@ const App=()=>{
     const privateKey = "bf8510677df0531b2544c2e3c1cf1396979ff23f";
     const ts = new Date().getTime().toString();
     const hash = MD5(ts + privateKey + publicKey).toString();
-
     const apiUrl = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
-
     axios
     .get(apiUrl)
     .then((response) => {
@@ -68,18 +67,19 @@ const App=()=>{
   return (
     
     <>
-      <Heading/>
+    {/* <LoginForm/> */}
+       <Box height='8%'>
+      <Heading />
+      </Box>
       <Menubar
   comics={Comics}
   series={Series}
   stories={Stories}
   comicImages={ComicAddresses}
-  storyImages={StoriesAddresses} // Corrected prop name
+  storyImages={StoriesAddresses} 
   seriesImages={SeriesAddresses}
 />
 
-      {/* <Tagline/>
-      <Slider1/> */}
       <Box maxWidth='100%'>
         <Poster poster={Poster1} cards={Comics}/>
         <br />
@@ -97,7 +97,7 @@ const App=()=>{
       </Box>
       <Box style={{width:'100%',height:'100vh'}}>
         <Footer/>
-      </Box>
+      </Box> 
     </>
   );
 };

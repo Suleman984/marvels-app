@@ -1,6 +1,6 @@
-import { Box } from '@mui/material'
-import React from 'react'
-import { useEffect, useState } from 'react';
+import { Box } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import "./Styling/slider1.css"; // Import the CSS file
 
 const imagePaths = [
   "./Assets/marvels.jpg",
@@ -13,36 +13,20 @@ export const Slider1: React.FC = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      // Calculate the index for the next image
       const nextImageIndex = (currentImageIndex + 1) % imagePaths.length;
       setCurrentImageIndex(nextImageIndex);
-    }, 2000); // Change image every 2 seconds
+    }, 2000);
 
-    // Clear the timer when the component unmounts
     return () => clearInterval(timer);
   }, [currentImageIndex]);
 
   return (
-    <Box
-      width="100%"
-      height="60vh" // Set a fixed height for the container
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      style={{backgroundColor:'grey'}}
-    >
+    <Box className="Slider1Container"> 
       <img
         src={imagePaths[currentImageIndex]}
         alt="marvels"
-        style={{
-          maxWidth: "100%",
-          maxHeight: "100%",
-          width: "100%",
-          height: "auto",
-        }}
+        className="Slider1Image" 
       />
     </Box>
-  )
-}
-
-
+  );
+};

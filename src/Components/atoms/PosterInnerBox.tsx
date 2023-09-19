@@ -13,7 +13,7 @@ const PosterInnerBox:React.FC<{poster:PosterTypes}> = ({poster}) => {
         <Typography variant="h6" style={{ color: "white",marginBottom:'20px' }}>
           {poster.text}
         </Typography>
-        <Button variant="outlined" style={{ color: "white", borderColor: "white" }}>
+        <Button variant="outlined" style={{ color: "white", borderColor: "grey" }}>
           Get Marvel UnLimited
         </Button>
     </Box>

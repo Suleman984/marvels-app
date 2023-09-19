@@ -13,7 +13,9 @@
     /* Add your CSS styles for mobile devices here */
     /* For example, you can adjust the image size */
     img {
-      width: 100%; /* Adjust the width as needed */
+      width: 100%; 
+      /* Adjust the width as needed */
     }
+    
   }
 }

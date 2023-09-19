@@ -1,0 +1,62 @@
+/* Default styles for larger screens */
+.TopRightContainer {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  width: 50%;
+  height: 100%;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.TopRightContent {
+  text-align: center;
+}
+
+.TopRightContainer > .TopRightContent > .TopRightButton {
+  color: white;
+  background-color: red;
+  padding: 5px 15px;
+}
+
+.TopRightContainer > .TopRightContent > .TopRightButton:hover {
+  color: white;
+  background-color: rgb(190, 11, 12);
+  padding: 5px 15px;
+}
+
+.TopRightTerms {
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  height: auto;
+  color: white;
+}
+
+/* Media query for screens with a maximum width of 600px (for mobile) */
+@media (max-width: 600px) {
+  .TopRightContainer {
+    width: 50%;
+     /* Adjust the width for mobile screens */
+     /* Add additional padding for mobile screens */
+  }
+
+  .TopRightContent {
+    /* Add the same styling for mobile screens here */
+  }
+
+  .TopRightContainer > .TopRightContent > .TopRightButton {
+    /* Add the same styling for mobile screens here */
+  }
+
+  .TopRightContainer > .TopRightContent > .TopRightButton:hover {
+    /* Add the same styling for mobile screens here */
+  }
+
+  .TopRightTerms {
+    /* Add the same styling for mobile screens here */
+  }
+}

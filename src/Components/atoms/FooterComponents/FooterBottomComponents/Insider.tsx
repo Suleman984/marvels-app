@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 export const Insider = () => {
   return (
     <Box>
-      <Box style={{display:'flex',}}>
+      <Box style={{display:'flex'}} className="insider">
         <Box style={{ width: "50%" }} className="insiderImage">
           <img
             src="https://cdn.marvel.com/content/1x/marvel_insider-topnav-logo-large2x.png"
