@@ -1,16 +1,21 @@
-import { Box, Typography, Button} from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import React from "react";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-
-export const ItemDisplay:React.FC<{imageSrc:string,title:string,description:string}> = ({ imageSrc, title, description }) => {
+import MovieDisplay from "../atoms/ItemPagination";
+export const ItemDisplay: React.FC<{
+  imageSrc: string;
+  newsTitles: string;
+  newsDescriptions: string;
+}> = ({ imageSrc, newsTitles, newsDescriptions }) => {
   return (
     <Box>
       <Box>
-        <img src="" alt="" />
+        <img
+          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.bookmyshow.com%2Fmovies%2Fant-man-and-the-wasp-quantumania%2FET00302402&psig=AOvVaw2cZyvdhHjh32H7SdSowLzB&ust=1695214076841000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKjW7NnatoEDFQAAAAAdAAAAABAE"
+          alt=""
+        />
         <Box>
-          <Button>Click Me</Button>
-          <Button>Click Me2</Button>
+          <Button variant="outlined">GET IT NOW</Button>
+          <Button variant="outlined">STREAM ON DISNEY+</Button>
         </Box>
       </Box>
       <Box>
@@ -27,21 +32,7 @@ export const ItemDisplay:React.FC<{imageSrc:string,title:string,description:stri
       </Box>
       <Box>
         <Typography>LATEST NEWS</Typography>
-        <Card>
-          <img
-            src={imageSrc}
-            alt={title}
-            style={{ width: "100%", height: "auto" }}
-          />
-          <CardContent>
-            <Typography variant="h6" gutterBottom>
-              {title}
-            </Typography>
-            <Typography variant="body2" color="textSecondary">
-              {description}
-            </Typography>
-          </CardContent>
-        </Card>
+        <MovieDisplay/>
       </Box>
     </Box>
   );

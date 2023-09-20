@@ -55,8 +55,7 @@ const App=()=>{
         setComics(comicsData);
         setSeries(seriesData);
         setStories(storiesData);
-        console.log(comicsData)
-        console.log(data.results[0])
+        console.log(response.data)
 
     })
     .catch((error) => {

@@ -6,6 +6,8 @@ import PosterCards from "../atoms/PosterCards";
 import { PosterTypes } from "../../Interfaces/PosterInterfaces";
 export const Poster: React.FC<{ poster: PosterTypes,cards:any }> = ({ poster,cards }) => {
   const imgSource: string = poster.imgSrc;
+  console.log(cards)
+  console.log("first")
   return (
     <>
       <Box

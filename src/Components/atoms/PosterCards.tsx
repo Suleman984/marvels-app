@@ -52,18 +52,17 @@ const CustomTab = (props: TabData) => {
   );
 };
 
+
 const BasicTabs = ({ cards }: { cards: any[] }) => {
   const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-
   const tabData: TabData[] = cards.map((card, index) => ({
-    label: `Tab ${index + 1}`,
-    imageSrc: card.imageSrc, // Assuming each card has an 'imageSrc' property
+    label: card.name,
+    imageSrc: card.resourceURI, // Assuming each card has an 'imageSrc' property
   }));
-
   return (
     <Box
       sx={{
@@ -72,7 +71,6 @@ const BasicTabs = ({ cards }: { cards: any[] }) => {
         margin: "auto",
         height: "200px",
         opacity:'1',
-        
       }}
     >
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -84,6 +82,7 @@ const BasicTabs = ({ cards }: { cards: any[] }) => {
           aria-label="scrollable prevent tabs example"
         >
           {tabData.map((tab, index) => (
+            
             <CustomTab
               key={index}
               label={comicNames[index]}
