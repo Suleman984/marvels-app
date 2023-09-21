@@ -2,30 +2,57 @@
 
 /* Default styles for larger screens */
 .Slider1Container {
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: grey;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Hide overflowing content */
+  position: relative; /* Add relative positioning */
+}
+
+.Slider1Image {
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(0); /* Initialize with no translation */
+  transition: transform 3.5s ease; /* Add a 3.5-second transition */
+  position: absolute; /* Add absolute positioning */
+  left: 0; /* Start from the left */
+  top: 0; /* Start from the top */
+}
+
+/* Media query for screens with a maximum width of 600px (for mobile) */
+@media (max-width: 600px) {
+  .Slider1Container {
+    /* Adjust the height for mobile screens */
+    height: 30vh; /* You can adjust this value as needed */
   }
-  
+
   .Slider1Image {
-    max-height: 100%;
-    width: 100%;
+    /* Make the image take full height on mobile */
     height: 100%;
   }
-  
-  /* Media query for screens with a maximum width of 600px (for mobile) */
-  @media (max-width: 600px) {
-    .Slider1Container {
-      /* Adjust the height for mobile screens */
-      height: 30vh; /* You can adjust this value as needed */
-    }
-  
-    .Slider1Image {
-      /* Make the image take full height on mobile */
-      height: 100%;
-    }
-  }
-  
+}
+
+.SliderComponentWrapper {
+  width: 100%;
+  height: 100%;
+  /* Add other styles as needed */
+  z-index: 1;
+  display: flex; /* Add flex to align items horizontally */
+  transition: transform 0.5s ease; /* Add a 3.5-second transition */
+}
+
+.SliderComponent {
+  width: 100%;
+  height: 100%; /* This ensures that the slider components take the full height of the wrapper */
+  /* Add other styles as needed */
+  z-index: 2;
+  flex-shrink: 0; /* Prevent components from shrinking */
+}
+
+/* Add styles for sliding left */
+.SlideToLeft {
+  transform: translateX(-100%); /* Slide the content to the left */
+}

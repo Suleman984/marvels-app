@@ -1,16 +1,16 @@
 import { Box, Typography, Button } from "@mui/material";
 import React from "react";
-import MovieDisplay from "../atoms/ItemPagination";
-export const ItemDisplay: React.FC<{
+import MovieDisplay from "../atoms/MovieDisplay";
+ const ItemDisplay: React.FC<{
   imageSrc: string;
   newsTitles: string;
   newsDescriptions: string;
 }> = ({ imageSrc, newsTitles, newsDescriptions }) => {
   return (
-    <Box>
+    <Box width='100%'>
       <Box>
         <img
-          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.bookmyshow.com%2Fmovies%2Fant-man-and-the-wasp-quantumania%2FET00302402&psig=AOvVaw2cZyvdhHjh32H7SdSowLzB&ust=1695214076841000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKjW7NnatoEDFQAAAAAdAAAAABAE"
+          src="./Assets/Movies/black panther.jpg"
           alt=""
         />
         <Box>
@@ -18,9 +18,9 @@ export const ItemDisplay: React.FC<{
           <Button variant="outlined">STREAM ON DISNEY+</Button>
         </Box>
       </Box>
-      <Box>
+      <Box width='100%'>
         <Typography>OFFICIAL TRAILER</Typography>
-        <Box>
+        <Box width='100%'>
           <iframe
             width="1200"
             height="700"
@@ -32,8 +32,11 @@ export const ItemDisplay: React.FC<{
       </Box>
       <Box>
         <Typography>LATEST NEWS</Typography>
+        <Box style={{display:'flex',justifyContent:'center',width:'100%',alignItems:'center',margin:'auto'}}>
         <MovieDisplay/>
+        </Box>
       </Box>
     </Box>
   );
 };
+export default  ItemDisplay;

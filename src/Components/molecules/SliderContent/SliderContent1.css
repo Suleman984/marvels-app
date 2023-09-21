@@ -1,0 +1,70 @@
+/* SliderContent1.css */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+   
+    border-radius: 8px;
+    /* background-image: url('../../../../public/Assets/Series/se1.jpeg') */
+  }
+   .overlay {
+    position: absolute;
+    top: 80px;
+    left: 150px;
+    color: white;
+  }
+  
+  .title {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color:white;
+    font-weight: bold;
+  }
+  .description {
+    font-size: large;
+    margin-bottom: 16px;
+    color:white;
+    font-weight: bold;
+  }
+  .button {
+    background-color: red; 
+    color:black;
+  }
+  .button:hover {
+    background-color: red;
+  }
+  @media (max-width: 768px) {
+    .container {
+      /* Adjust styles for smaller screens */
+      height: auto; /* Set height to auto to allow content to expand vertically */
+      padding: 20px; /* Add padding to create spacing around content */
+    }
+  
+    .overlay {
+      /* Adjust styles for smaller screens */
+      top: 20px; /* Adjust the top position as needed */
+      left: 20px; /* Adjust the left position as needed */
+    }
+  
+    .title {
+      /* Adjust styles for smaller screens */
+      font-size: medium; /* Adjust font size for titles */
+      font-weight: bold;
+    }
+  
+    .description {
+      /* Adjust styles for smaller screens */
+      font-size: small; /* Adjust font size for descriptions */
+      margin-bottom: 12px; /* Adjust margin for descriptions */
+    }
+  
+    .button {
+      /* Adjust styles for smaller screens */
+      font-size: small; /* Adjust font size for buttons */
+      padding: 6px 12px; /* Adjust padding for buttons */
+    }
+  }

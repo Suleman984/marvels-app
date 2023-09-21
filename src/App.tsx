@@ -15,11 +15,12 @@ import Heading from "./Components/atoms/heading";
 import { ComicAddresses } from "./Components/ImageAddresses";
 import { StoriesAddresses } from "./Components/ImageAddresses";
 import { SeriesAddresses } from "./Components/ImageAddresses";
-import { LoginForm } from "./Components/atoms/LoginForm";
+
 const App=()=>{
   const [Comics, setComics] = useState<any[]>([]);
   const [Series, setSeries] = useState<any[]>([]);
   const [Stories, setStories] = useState<any[]>([]);
+  const [comicsData,setComicsData]=useState<any[]>([]);
   const Poster1: PosterTypes = {
     imgSrc: "https://cdn.marvel.com/content/1x/mulogo_lob_log_eye_01_1.png",
     mainText: "Available Now",
@@ -45,6 +46,9 @@ const App=()=>{
     const ts = new Date().getTime().toString();
     const hash = MD5(ts + privateKey + publicKey).toString();
     const apiUrl = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+    const fetchComics=`https://gateway.marvel.com:443/v1/public/series?ts=${ts}&apikey=${publicKey}&hash=${hash}
+    `
+
     axios
     .get(apiUrl)
     .then((response) => {
@@ -56,11 +60,15 @@ const App=()=>{
         setSeries(seriesData);
         setStories(storiesData);
         console.log(response.data)
-
     })
     .catch((error) => {
       console.error("Error fetching data from Marvel API:", error);
     });
+    axios.get(fetchComics).then((response)=>{
+      const comicsData=response.data.data;
+      const ComicFromApi=comicsData.results[10].comics.items;
+      setComicsData(ComicFromApi);
+    }).catch((error)=>{console.log("error"+error)})
 }, []);
   
   return (
